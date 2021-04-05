@@ -1,4 +1,4 @@
-#include "pandaplatformtheme.h"
+#include "helloplatformtheme.h"
 #include "x11integration.h"
 #include "qdbusmenubar_p.h"
 
@@ -86,7 +86,7 @@ void onDarkModeChanged()
     }
 }
 
-PandaPlatformTheme::PandaPlatformTheme()
+HelloPlatformTheme::HelloPlatformTheme()
     : m_hints(new HintsSettings)
 {
     // qApp->setProperty("_hints_settings_object", (quintptr)m_hints);
@@ -104,11 +104,11 @@ PandaPlatformTheme::PandaPlatformTheme()
     QCoreApplication::setAttribute(Qt::AA_DontUseNativeMenuBar, false);
 }
 
-PandaPlatformTheme::~PandaPlatformTheme()
+HelloPlatformTheme::~HelloPlatformTheme()
 {
 }
 
-bool PandaPlatformTheme::usePlatformNativeDialog(DialogType type) const
+bool HelloPlatformTheme::usePlatformNativeDialog(DialogType type) const
 {
     if (type == FileDialog
        && qobject_cast<QApplication *>(QCoreApplication::instance())) { // QML may not have qApp
@@ -118,12 +118,12 @@ bool PandaPlatformTheme::usePlatformNativeDialog(DialogType type) const
     return false;
 }
 
-QPlatformDialogHelper *PandaPlatformTheme::createPlatformDialogHelper(DialogType type) const
+QPlatformDialogHelper *HelloPlatformTheme::createPlatformDialogHelper(DialogType type) const
 {
     return nullptr;
 }
 
-QVariant PandaPlatformTheme::themeHint(QPlatformTheme::ThemeHint hintType) const
+QVariant HelloPlatformTheme::themeHint(QPlatformTheme::ThemeHint hintType) const
 {
     QVariant hint = m_hints->hint(hintType);
     if (hint.isValid()) {
@@ -133,7 +133,7 @@ QVariant PandaPlatformTheme::themeHint(QPlatformTheme::ThemeHint hintType) const
     }
 }
 
-const QFont* PandaPlatformTheme::font(Font type) const
+const QFont* HelloPlatformTheme::font(Font type) const
 {
     switch (type) {
     case SystemFont: {
@@ -159,7 +159,7 @@ const QFont* PandaPlatformTheme::font(Font type) const
     return QPlatformTheme::font(type);
 }
 
-QPlatformMenuBar *PandaPlatformTheme::createPlatformMenuBar() const
+QPlatformMenuBar *HelloPlatformTheme::createPlatformMenuBar() const
 {
     if (isDBusGlobalMenuAvailable()) {
         auto *menu = new QDBusMenuBar();
