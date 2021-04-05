@@ -29,7 +29,7 @@ sudo make install
 ## Usage
 
 ```
-export QT_QPA_PLATFORMTHEME=panda
+export QT_QPA_PLATFORMTHEME=hello
 (start Qt applciation)
 ```
 

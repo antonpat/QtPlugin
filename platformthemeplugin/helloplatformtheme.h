@@ -1,5 +1,5 @@
-#ifndef PANDAPLATFORMTHEME_H
-#define PANDAPLATFORMTHEME_H
+#ifndef HELLOPLATFORMTHEME_H
+#define HELLOPLATFORMTHEME_H
 
 #include <qpa/qplatformtheme.h>
 #include "hintsettings.h"
@@ -12,13 +12,13 @@ class QIconEngine;
 class QWindow;
 class X11Integration;
 
-class PandaPlatformTheme : public QObject, public QPlatformTheme
+class HelloPlatformTheme : public QObject, public QPlatformTheme
 {
     Q_OBJECT
 
 public:
-    PandaPlatformTheme();
-    ~PandaPlatformTheme() override;
+    HelloPlatformTheme();
+    ~HelloPlatformTheme() override;
 
     bool usePlatformNativeDialog(DialogType type) const override;
     QPlatformDialogHelper *createPlatformDialogHelper(DialogType type) const override;
@@ -43,4 +43,4 @@ private:
     QScopedPointer<X11Integration> m_x11Integration;
 };
 
-#endif // PANDAPLATFORMTHEME_H
+#endif // HELLOPLATFORMTHEME_H

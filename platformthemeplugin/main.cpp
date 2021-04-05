@@ -1,5 +1,5 @@
 #include <qpa/qplatformthemeplugin.h>
-#include "pandaplatformtheme.h"
+#include "helloplatformtheme.h"
 
 #include <private/xdgiconloader/xdgiconloader_p.h>
 
@@ -13,7 +13,7 @@ void updateXdgIconSystemTheme()
 class PlatformThemePlugin : public QPlatformThemePlugin
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID QPlatformThemeFactoryInterface_iid FILE "panda.json")
+    Q_PLUGIN_METADATA(IID QPlatformThemeFactoryInterface_iid FILE "hello.json")
 
 public:
     PlatformThemePlugin(QObject *parent = nullptr)
@@ -23,7 +23,7 @@ public:
     {
         Q_UNUSED(key)
         Q_UNUSED(paramList)
-        return new PandaPlatformTheme;
+        return new HelloPlatformTheme;
     }
 };
 

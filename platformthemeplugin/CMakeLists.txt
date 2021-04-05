@@ -25,8 +25,8 @@ pkg_check_modules(XCB_EWMH REQUIRED xcb xcb-ewmh x11)
 
 set (SRCS
     main.cpp
-    pandaplatformtheme.h
-    pandaplatformtheme.cpp
+    helloplatformtheme.h
+    helloplatformtheme.cpp
     hintsettings.h
     hintsettings.cpp
     systemtrayicon.h
@@ -49,14 +49,14 @@ qt5_add_dbus_adaptor(SRCS
     StatusNotifierItem
 )
 
-add_library(panda-qtplugin MODULE ${SRCS})
+add_library(hello-qtplugin MODULE ${SRCS})
 
-target_compile_definitions(panda-qtplugin
+target_compile_definitions(hello-qtplugin
     PRIVATE
         "QT_NO_FOREACH"
 )
 
-target_link_libraries(panda-qtplugin PRIVATE
+target_link_libraries(hello-qtplugin PRIVATE
     Qt5::GuiPrivate
     Qt5::X11Extras
     Qt5::Widgets
@@ -87,4 +87,4 @@ else()
     message(FATAL_ERROR "Qt5 plugin directory cannot be detected.")
 endif()
 
-install(TARGETS panda-qtplugin LIBRARY DESTINATION "${QT_PLUGINS_DIR}/platformthemes")
+install(TARGETS hello-qtplugin LIBRARY DESTINATION "${QT_PLUGINS_DIR}/platformthemes")
